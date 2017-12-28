@@ -1,0 +1,25 @@
+{
+  "name": "ponyo",
+  "version": "0.0.1",
+  "description": "a new css library for ponyo",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Vevlins/ponyo.git"
+  },
+  "keywords": [
+    "css"
+  ],
+  "author": "vevlins",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Vevlins/ponyo/issues"
+  },
+  "homepage": "https://github.com/Vevlins/ponyo#readme",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  }
+}
