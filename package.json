@@ -13,13 +13,22 @@
   "keywords": [
     "css"
   ],
-  "author": "vevlins",
+  "author": "Vevlins",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Vevlins/ponyo/issues"
   },
   "homepage": "https://github.com/Vevlins/ponyo#readme",
   "dependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-clean-css": "^3.9.1",
+    "gulp-header": "^1.8.9",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^2.6.2"
+  },
+  "devDependencies": {
+    "gulp-connect": "^5.0.0",
+    "gulp-sass": "^2.3.2"
   }
 }

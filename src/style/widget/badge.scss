@@ -1,0 +1,51 @@
+@mixin badge($background-color:$primary-color,$color:$white-color) {
+    display: inline-block;
+    background: {
+        color:$background-color;
+    }
+    color: $color;
+    font: {
+        size: .9em;
+        weight: 600;
+    }
+    line-height: 2em;
+    padding: 0 .8em;
+    vertical-align: baseline;
+}
+
+@mixin badge-color($background-color:$primary-color){
+    background-color: $background-color;
+}
+
+@mixin badge-radius($radius:0px) {
+    border-radius: $radius;
+}
+
+.p-badge {
+    //color
+    &,&.p-badge-primary {
+        @include badge();
+    }
+    &.p-badge-success {
+        @include badge-color($green-color);
+    }
+    &.p-badge-warn {
+        @include badge-color($orange-color);
+    }
+    &.p-badge-danger {
+        @include badge-color($red-color);
+    }
+    //radius
+    &.p-badge-radius {
+        @include badge-radius(3px);
+    }
+    &.p-badge-round {
+        @include badge-radius(100px);
+    }
+    //size
+    @each $key,$value in $badge-size-map {
+        &.p-badge-#{$key} {
+            font-size: $value;
+        }
+    }
+}

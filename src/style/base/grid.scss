@@ -1,0 +1,48 @@
+@mixin grid(){
+    display: block;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+@mixin grid-item($width){
+    display: inline-block;
+    float: left;
+    width: $width;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+@mixin grid-offset($offset:0) {
+    margin-left: $offset;
+}
+
+.p-grid {
+    & {
+        @include grid();
+    }
+    //offset
+    @for $i from 1 to 12 {
+        & .p-grid-item-offset-#{$i}{
+               @include grid-offset(percentage($i/12));
+        }
+     }
+    //general;
+    @for $i from 1 to 12 {
+        & .p-grid-item-#{$i}{
+                @include grid-item(percentage($i/12));
+        }
+     }
+
+    //screen query
+    @each $key,$value in $screen-size-map{
+        @media (min-width: nth($value,1)) and (max-width: nth($value,2)) {
+            @for $i from 1 to 12 {
+                & .p-grid-item-#{$key}-#{$i}{
+                    @include grid-item(percentage($i/12));
+                }
+            }   
+        }
+    }
+
+}
