@@ -1,0 +1,26 @@
+/*clear float use bfc*/
+.#{$prefix}-clearfloat{
+    overflow: hidden;
+}
+/*font-size*/
+@each $key,$value in $font-size-map{
+    .#{$prefix}text-#{$key} {
+        font-size: $value!important;
+    }
+}
+/*text-vertical*/
+.#{$prefix}text-top{
+    vertical-align: top;
+}
+.#{$prefix}text-middle{
+    vertical-align: middle;
+}
+.#{$prefix}text-bottom{
+    vertical-align: bottom;
+}
+.#{$prefix}text-truncate {
+    word-wrap: normal; /* for IE */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

@@ -1,0 +1,55 @@
+@mixin animation-hover ($before-transform,$after-transform,$duration:400ms){
+    transform:$before-transform;
+    transition-duration:$duration;
+    &:hover {
+        transform: $after-transform;
+        transition: {
+            duration:$duration;
+            property:transform;
+        }
+    }
+}
+
+&.#{$prefix}amplify {
+    @include animation-hover(scale(1),scale(1.2));
+}
+
+&.#{$prefix}rotate {
+    @include animation-hover(rotate(0),rotate(360deg));
+}
+
+&.#{$prefix}hide {
+    transform: {
+        delay: 3s;
+        duration: 2s;
+        property: opacity;
+    }
+}
+@keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+  
+    to {
+      opacity: 0;
+    }
+  }
+ @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+   
+.fadeOut {
+    animation-name: fadeOut;
+    animation-duration: 500ms;
+}
+.fadeIn {
+    animation-name: fadeIn;
+    animation-duration: 500ms;
+}
+  

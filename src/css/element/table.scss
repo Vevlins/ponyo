@@ -1,0 +1,38 @@
+.#{$prefix}table{
+    tr,caption{
+        background-color: $white-color;
+    }
+    &{
+        font-size: 1.4rem;
+        border: 1px solid $default-color;
+    }
+    &.#{$prefix}table-stripe {
+        tbody tr:nth-child(odd){
+            background-color:rgba($default-color,.1);
+        }
+    }
+    &.#{$prefix}table-radius {
+        border-radius: 10px;
+    }
+    tr,caption,thead{
+        border-bottom:solid 1px $default-color;
+    }
+    caption,thead{
+        font-weight: 600;
+    }
+    td,th,caption{
+        padding: 1rem 1rem;
+        border: 1px solid $default-color;
+    }
+    tr.#{$prefix}table-active {
+        background-color:$active-color!important;
+    }
+    &.#{$prefix}table-hover {
+        tbody tr:hover{
+            background-color: rgba($default-color,.6);
+            transition: {
+                duration:300ms;
+            }
+        }
+    }
+}

@@ -6,6 +6,7 @@ var rename = require('gulp-rename');
 var sourcemaps = require('gulp-sourcemaps');
 var connect = require('gulp-connect');
 var cleanCSS = require('gulp-clean-css');
+var pug = require('gulp-pug');
 var pkg = require('./package.json');
 
 var banner = ['/**',
@@ -18,7 +19,7 @@ var banner = ['/**',
   ''].join('\n');
 
 gulp.task('build:scss', function () {
-    return gulp.src('./src/style/ponyo.scss')
+    return gulp.src('./src/css/ponyo.scss')
         .pipe(sourcemaps.init())
         .pipe(header(banner, { pkg : pkg } ))
         .pipe(autoprefixer({
@@ -27,11 +28,11 @@ gulp.task('build:scss', function () {
         }))
         .pipe(sass().on('error', sass.logError))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./dist/style/'));
+        .pipe(gulp.dest('./dist/css/'));
 });
 
 gulp.task('compress:scss',function(){
-    return gulp.src('./src/style/ponyo.scss')
+    return gulp.src('./src/css/ponyo.scss')
     .pipe(header(banner, { pkg : pkg } ))
     .pipe(autoprefixer({
         browsers: ['since 2010'],
@@ -40,7 +41,13 @@ gulp.task('compress:scss',function(){
     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(cleanCSS())
     .pipe(rename("ponyo.min.css"))
-    .pipe(gulp.dest('./dist/style/'));
+    .pipe(gulp.dest('./dist/css/'));
+})
+
+gulp.task('build:pug',function(){
+    return gulp.src('./src/example/index.pug')
+        .pipe(pug().on('error',function(){}))
+        .pipe(gulp.dest('./dist/example/'));
 })
 
 gulp.task('connect',function() {
@@ -48,10 +55,9 @@ gulp.task('connect',function() {
         root: 'dist/',
         livereload: true
     });
-    console.log('http:localhost/example/')
 })
 
-gulp.task('reload:html',function(){
+gulp.task('reload:html',['build:pug'],function(){
     return gulp.src('./dist/example/**/*.html')
     .pipe(connect.reload());
 })
@@ -63,7 +69,7 @@ gulp.task('reload:css',['build:scss','compress:scss'],function(){
 
 gulp.task('watch',['connect'],function(){
     gulp.watch('./src/**/*.scss',['reload:css']);
-    gulp.watch('./dist/example/**/*.html',['reload:html']);
+    gulp.watch('./src/example/index.pug',['reload:html']);
 })
 
 gulp.task('default',['connect','watch'])

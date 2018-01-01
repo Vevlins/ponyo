@@ -1,0 +1,78 @@
+@mixin notice($background-color:$white-color,$color:$white-color){
+    background-color: $background-color;
+    color: $color;
+    padding: 1.6rem;
+    border: 1px solid rgba($default-color,.3);
+    display: block;
+    width: 30rem;
+    max-width: 90%;
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+@mixin notice-color($background-color:$white-color,$color:$white-color){
+    background-color: $background-color;
+    color: $color;
+}
+
+.#{$prefix}notice {
+    & {
+        @include notice($color:$black-color);
+    }
+    &.#{$prefix}notice-primary{
+        @include notice-color($primary-color);
+    }
+    &.#{$prefix}notice-success{
+        @include notice-color($success-color);
+    }
+    &.#{$prefix}notice-warn{
+        @include notice-color($warn-color);
+    }
+    &.#{$prefix}notice-danger{
+        @include notice-color($danger-color);
+    }
+    & .#{$prefix}notice-head {
+        display: block;
+        height: 1.8rem;
+        margin: 0 0 1rem 0;
+        position: relative;
+    }
+    & .#{$prefix}notice-title {
+        display: block;
+        height: 1.8rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        position: absolute;
+        word-break: keep-all;
+        left: 0;
+        top:0;
+        right: 2rem;
+        font-weight: 600;
+        margin: 0 2rem 0 0;
+    }
+    & .#{$prefix}notice-close {
+        font-family: 'icomoon' !important;
+        vertical-align: middle;
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        opacity: .5;
+        &:hover{
+            cursor: pointer;
+        }
+        &:before{
+            content: "\e91e";
+        }
+    }
+    & .#{$prefix}notice-text {
+        font-size: 1.4rem;
+        overflow: hidden;
+        display: block;
+        margin: 0;
+        word-break:break-all;
+    }
+}

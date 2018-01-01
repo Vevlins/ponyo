@@ -1,0 +1,103 @@
+body {
+    font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans","wenquanyi micro hei","Hiragino Sans GB", "Hiragino Sans GB W3", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@for $i from 1 to 7 {
+    *+h#{$i}{
+        margin-top:2em;
+    }
+    h#{$i}{
+        font-weight: 600;
+        margin-bottom: 1.6rem;
+        font-size: nth($h-size-list,$i);
+    }
+}
+hr{
+    border: {
+        width: 0 0 1px 0;
+        style: solid;
+        color: #eee;
+    }
+}
+blockquote{
+    overflow: hidden;
+    margin: 2em 2em 2em 0;
+    padding: 0 0 0 1em;
+    border-left: .4rem solid $default-color;
+    font-family: Georgia, "Times New Roman", Times, Kai, "Kaiti SC", KaiTi, BiauKai, FontAwesome, serif;
+    small{
+        float: right;
+        color: $default-color;
+    }
+}
+pre{
+    background-color: rgba($default-color,.1);
+    padding: 1rem;
+    border: 1px solid $default-color;
+    color: darken($default-color,50%);
+    font-size: 1.4rem;
+    overflow: hidden;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+a{
+    text-decoration: none;
+    &:link,&:visited{
+        color: $primary-color;
+    }
+    &:hover{
+        color: darken($primary-color,20%);
+    }
+    &:active{
+        color: $primary-color;
+    }
+}
+abbr,dfn{
+    border-bottom: 1px dotted $default-color;
+    &:hover{
+        cursor: help;
+    }
+}
+code{
+    background-color: rgba($default-color,.1);
+    padding: .2em;
+    font-style: italic;
+}
+img {
+    max-width: 100%;
+}
+table {
+    border-collapse: collapse;
+}
+.#{$prefix}text-default {
+    color: $default-color!important;
+}
+.#{$prefix}text-primary {
+    color: $primary-color!important;
+}
+.#{$prefix}text-success {
+    color: $success-color!important;
+}
+.#{$prefix}text-warn {
+    color: $warn-color!important;
+}
+.#{$prefix}text-danger {
+    color: $danger-color!important;
+}
+.#{$prefix}bg-default {
+    background-color: rgba($default-color,.1)!important;
+}
+.#{$prefix}bg-primary {
+    background-color: rgba($primary-color,.1)!important;
+}
+.#{$prefix}bg-success {
+    background-color: rgba($success-color,.1)!important;
+}
+.#{$prefix}bg-warn {
+    background-color: rgba($warn-color,.1)!important;
+}
+.#{$prefix}bg-danger {
+    background-color: rgba($danger-color,.1)!important;
+}

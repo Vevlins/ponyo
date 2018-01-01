@@ -1,0 +1,14 @@
+//盒模型类型为IE盒模型
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+  
+body {
+    font-size: 1.6rem; /* =16px */
+}

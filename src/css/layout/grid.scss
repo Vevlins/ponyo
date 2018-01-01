@@ -9,7 +9,7 @@
     display: inline-block;
     float: left;
     width: $width;
-    overflow-x: hidden;
+    overflow: hidden;
     box-sizing: border-box;
 }
 
@@ -17,19 +17,19 @@
     margin-left: $offset;
 }
 
-.p-grid {
+.#{$prefix}grid {
     & {
         @include grid();
     }
     //offset
     @for $i from 1 to 12 {
-        & .p-grid-item-offset-#{$i}{
+        & .#{$prefix}grid-offset-#{$i}{
                @include grid-offset(percentage($i/12));
         }
      }
     //general;
     @for $i from 1 to 12 {
-        & .p-grid-item-#{$i}{
+        & .#{$prefix}grid-#{$i}{
                 @include grid-item(percentage($i/12));
         }
      }
@@ -38,7 +38,7 @@
     @each $key,$value in $screen-size-map{
         @media (min-width: nth($value,1)) and (max-width: nth($value,2)) {
             @for $i from 1 to 12 {
-                & .p-grid-item-#{$key}-#{$i}{
+                & .#{$prefix}grid-#{$key}-#{$i}{
                     @include grid-item(percentage($i/12));
                 }
             }   

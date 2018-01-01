@@ -1,0 +1,140 @@
+doctype
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        title
+        link(rel="stylesheet", href="../css/ponyo.min.css", attr)
+        style.
+            body{
+                padding: 20px;
+            }
+            .p-grid *{
+                border:1px solid orange;
+                height:200px;
+                vertical-align:center;
+            }
+            i{
+                vertical-align:middle;
+            }
+        script(src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js")
+        script.
+            //- $('#hide').click(()=>{
+            //-     //- console.log('1111')
+            //-     //- setTimeout(() => {
+            //-     //-     $('#hide').addClass("fadeOut");
+            //-     //- }, 200);
+            //- })
+            $(function(){
+                $('#notice').click(function(){
+                    $('#hide').addClass("fadeIn");
+                    $('#hide').show();
+                    setTimeout(function(){
+                        $('#hide').removeClass("fadeIn");
+                    },500);
+                })
+                $('#hide').click(function(){
+                    console.log(111);
+                    $('#hide').addClass("fadeOut");
+                    setTimeout(()=>{
+                        $('#hide').hide();
+                        $('#hide').removeClass("fadeOut");
+                    },500)
+                })
+            })
+    body
+        p.p-print-hide.
+            无论走到哪里，都应该记住，过去都是假的，回忆是一条没有尽头的路，一切以往的春天都不复存在，就连那最坚韧而又狂乱的爱情归根结底也不过是一种转瞬即逝的现实。
+        hr
+        blockquote
+            p.p-text-lg. 
+                无论走到哪里，都应该记住，过去都是假的，回忆是一条没有尽头的路，一切以往的春天都不复存在，就连那最坚韧而又狂乱的爱情归根结底也不过是一种转瞬即逝的现实。
+                无论走到哪里，都应该记住，过去都是假的，回忆是一条没有尽头的路，一切以往的春天都不复存在，就连那最坚韧而又狂乱的爱情归根结底也不过是一种转瞬即逝的现实。
+            small 马克尔斯
+        pre.
+            window.addEventListener('load', function() {
+            FastClick.attach(document.body);
+            }, false);
+        a 计算器
+        em 计算器
+        strong 计算器
+        code 计算器
+        del 计算器
+        ins 计算器
+        mark 计算器
+        q 计算器
+        abbr(title="计算器是一种电子") 计算器
+        dfn(title="计算器是一种dfn") 计算器
+        small 计算器
+        a(href="http://baidu.com") 参考资料
+        div.p-grid
+            div.p-grid-2
+                img(src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/120/h/120")
+                span.p-text-middle xx
+            div.p-grid-5 
+            div.p-grid-3.p-grid-offset-2
+        table
+            tr
+                th xxx
+                th ooo
+            tr
+                td ooo
+                td xxx
+        button.p-btn.p-btn-primary#notice 你好
+        button.p-btn.p-btn-success(disabled) 你好
+        button.p-btn.p-btn-active 你好
+        button.p-btn.p-btn-danger 你好
+        button.p-btn.p-btn-success.p-btn-plain.p-btn-radius 你好
+        button.p-btn.p-btn-round 你好
+            i.p-icon-share
+        button.p-btn.p-btn-block 你好
+        span.p-badge.p-badge-default.p-badge-lg nihao
+        span.p-badge.p-badge-primary.p-badge-xl nihao
+        span.p-badge.p-badge-success.p-badge-xs.p-badge-round nihao
+        span.p-badge.p-badge-danger.p-badge-sm.p-badge-radius nihao
+        span.p-badge.p-badge-warn nihao
+        hr
+        table.p-table.p-table-stripe.p-table-hover
+            //- caption 网站列表
+            thead
+                tr 
+                    th 网站
+                    th 网址
+            tbody
+                tr.p-table-active
+                    td amazeui
+                    td http://baidu.common-struct
+                tr.p-bg-primary  
+                    td amazeui
+                    td http://p-badge-radius
+                tr.p-bg-warn  
+                    td amazeui
+                    td http://baidu.common-struct
+                tr   
+                    td amazeui
+                    td http://p-badge-radius
+        hr
+        br
+        img(src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/1000/h/1000/q/80",width="100px").p-img.p-img-round.p-img-border.p-rotate
+        button.p-btn.p-btn-success.p-btn-lg#notice
+            i.p-icon-backward.p-text-lg
+        button.p-btn.p-btn-success
+            i.p-icon-bubbles
+        button.p-btn.p-btn-success
+            i.p-icon-bullhorn
+        button.p-btn.p-btn-success
+            i.p-icon-cloud-check
+        button.p-btn.p-btn-success
+            i.p-icon-coin-dollar
+        button.p-btn.p-btn-success
+            i.p-icon-connection
+        button.p-btn.p-btn-success
+            i.p-icon-download
+        button.p-btn    
+            i.p-icon-folder
+        div.p-notice#hide
+            div.p-notice-head
+                p.p-notice-title 成功成功成功成功成功成功成功成功
+                span.p-notice-close
+            p.p-notice-text 这是一条祝贺您成功的通知!这是一条祝贺您成功的通知!
+        
+        

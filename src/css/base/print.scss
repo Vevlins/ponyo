@@ -1,0 +1,24 @@
+.#{$prefix}print-show{
+    visibility: hidden;
+}
+@media print {
+    *{
+        color: #000;
+    }
+    a:link{
+        &:after{
+            content: '('attr(href)')';
+        }
+    }
+    abbr,dfn{
+        &:after{
+            content: '('attr(title)')';
+        }
+    }
+    .#{$prefix}print-hide{
+        visibility: hidden;
+    }
+    .#{$prefix}print-show{
+        visibility: visible;
+    }
+}

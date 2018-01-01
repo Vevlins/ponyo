@@ -24,8 +24,11 @@
     "gulp-autoprefixer": "^4.0.0",
     "gulp-clean-css": "^3.9.1",
     "gulp-header": "^1.8.9",
+    "gulp-pug": "^3.3.0",
     "gulp-rename": "^1.2.2",
-    "gulp-sourcemaps": "^2.6.2"
+    "gulp-sourcemaps": "^2.6.2",
+    "normalize.css": "^7.0.0",
+    "pug": "^2.0.0-rc.4"
   },
   "devDependencies": {
     "gulp-connect": "^5.0.0",

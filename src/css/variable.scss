@@ -1,0 +1,21 @@
+$prefix: 'p-';
+
+$h-size-list: (2.4rem,2rem,1.6rem,1.6rem,1.6rem,1.6rem);
+$font-size-map: (xl:2rem,lg:1.8rem,sm:1.4rem,xs:1.2rem);
+$btn-size-map: (xl:2rem,lg:1.8rem,sm:1.4rem,xs:1.2rem);
+$badge-size-map:(xl:1.5rem,lg:1.3rem,sm:.9rem,xs:.7rem);
+
+$screen-min: 0px;
+$screen-sm: 600px;
+$screen-lg: 1200px;
+$screen-max:20000px;
+$screen-size-map:(sm:($screen-min,$screen-sm),md:($screen-sm,$screen-lg),lg:($screen-lg,$screen-max));
+
+$default-color:#d4d4d4;
+$primary-color:#29B6F6;
+$success-color:#66BB6A;
+$warn-color:#FFCA28;
+$danger-color:#EF5350;
+$white-color:#ffffff;
+$black-color:#000000;
+$active-color:#ffffdd;
