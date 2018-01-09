@@ -18,12 +18,6 @@ html(lang='en')
             }
         script(src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js")
         script.
-            //- $('#hide').click(()=>{
-            //-     //- console.log('1111')
-            //-     //- setTimeout(() => {
-            //-     //-     $('#hide').addClass("fadeOut");
-            //-     //- }, 200);
-            //- })
             $(function(){
                 $('#notice').click(function(){
                     $('#hide').addClass("fadeIn");
@@ -135,6 +129,28 @@ html(lang='en')
             div.p-notice-head
                 p.p-notice-title 成功成功成功成功成功成功成功成功
                 span.p-notice-close
-            p.p-notice-text 这是一条祝贺您成功的通知!这是一条祝贺您成功的通知!
-        
-        
+            p.p-notice-content 这是一条祝贺您成功的通知!这是一条祝贺您成功的通知!
+        div.p-progress 
+            div.p-progress-bar.p-progress-bar-striped(style='width:30%') 30%
+            //- div.p-progress-bar.p-progress-bar-warn.p-progress-bar-striped(style='width:60%') 60%
+            //- div.p-progress-bar.p-progress-bar-success.p-progress-bar-striped(style='width:10%') 30%
+        div.p-panel
+            div.p-panel-hd 面板标题
+            div.p-panel-bd 【观察者网综合报道】1 月 5 日，在安徽合肥高铁站一列由合肥开往广州南的列车上，一名带着孩子的妇女罗某以等老公为名，用身体强行阻挡车门关闭，并让列车员通知检票员放行其老公。列车员和乘客多次劝解无果，最后造成列车晚点 4 分钟。据了解，该女子可能面临：行政拘留 10 日，罚款 2000 元。
+        div.p-panel.p-panel-primary
+            div.p-panel-hd 
+                h5 面板标题
+            div.p-panel-bd 【观察者网综合报道】1 月 5 日，在安徽合肥高铁站一列由合肥开往广州南的列车上，一名带着孩子的妇女罗某以等老公为名，用身体强行阻挡车门关闭，并让列车员通知检票员放行其老公。列车员和乘客多次劝解无果，最后造成列车晚点 4 分钟。据了解，该女子可能面临：行政拘留 10 日，罚款 2000 元。
+        div.p-panel.p-panel-warn
+            div.p-panel-bd 【观察者网综合报道】1 月 5 日，在安徽合肥高铁站一列由合肥开往广州南的列车上，一名带着孩子的妇女罗某以等老公为名，用身体强行阻挡车门关闭，并让列车员通知检票员放行其老公。列车员和乘客多次劝解无果，最后造成列车晚点 4 分钟。据了解，该女子可能面临：行政拘留 10 日，罚款 2000 元。
+        div.p-alert sssss
+        div.p-alert.p-alert-success 
+            p 观察者网综合报道观察者网综合报道观察者网综合报道观察者网综合报道
+            div.p-alert-close
+        div.p-alert.p-alert-primary 面板标题观察者网综合报道观察者网综合报道观察者网综合报道
+        div.p-alert.p-alert-warn 观察者网综合报道
+        div.p-alert.p-alert-danger 面板标题
+        ul
+            li nihao\
+            li 我是汤爸爸
+            li docker

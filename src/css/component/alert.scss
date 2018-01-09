@@ -1,0 +1,58 @@
+@mixin alert($color:$default-color){
+    display: block;
+    z-index: 1000;
+    padding: 1rem;
+    position: relative;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: keep-all;
+    & *:not(.#{$prefix}alert-close){
+        display: block;
+        margin:0 2rem 0 0;
+        padding: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: keep-all;
+    }
+}
+@mixin alert-color($color:$default-color){
+    // border: 1px solid rgba($color,.1);
+    color: darken($color,10%);
+    background-color: rgba($color,.2);
+}
+
+.#{$prefix}alert {
+    & {
+        @include alert();
+        @include alert-color();
+        color: darken($default-color,40%);
+    }
+    &.#{$prefix}alert-primary{
+        @include alert-color($primary-color);
+    }
+    &.#{$prefix}alert-success{
+        @include alert-color($success-color);
+    }
+    &.#{$prefix}alert-warn{
+        @include alert-color($warn-color);
+    }
+    &.#{$prefix}alert-danger{
+        @include alert-color($danger-color);
+    }
+    & .#{$prefix}alert-close {
+        font-family: 'icomoon' !important;
+        vertical-align: middle;
+        display: inline-block;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        opacity: .5;
+        &:hover{
+            cursor: pointer;
+        }
+        &:before{
+            content: "\e91e";
+        }
+    }
+}
