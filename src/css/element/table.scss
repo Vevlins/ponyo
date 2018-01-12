@@ -8,7 +8,7 @@
     }
     &.#{$prefix}table-stripe {
         tbody tr:nth-child(odd){
-            background-color:rgba($default-color,.1);
+            background-color:rgba($default-color,.2);
         }
     }
     &.#{$prefix}table-radius {
