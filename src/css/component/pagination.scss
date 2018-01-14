@@ -1,0 +1,60 @@
+@mixin pagination(){
+    &{
+        padding: 0;
+        text-align: center;
+    }
+    & li { 
+        display: inline-block;
+        border: 1px solid $default-color;
+        margin: .5rem;
+        & a {
+            display: block;
+            width: 100%;
+            padding: .5rem 1rem;
+        }
+    }
+}
+
+.#{$prefix}pagination{
+    &{
+        @include pagination();
+    }
+     &.#{$prefix}pagination-left{
+        text-align: left;
+    }
+    &.#{$prefix}pagination-right{
+        text-align: right;
+    }
+    & li {
+        &.#{$prefix}pagination-prev{
+            & a::before{
+                content: '« ';
+            }
+        }
+        &.#{$prefix}pagination-next{
+            & a::after{
+                content: ' »';
+            }
+        }
+        &:hover{
+            &{
+                background-color: $primary-color;
+                a {
+                    color: white;
+                }
+                transition: {
+                    property:color,background-color;
+                    duration: .3s;
+                }
+            }
+        }
+        &.#{$prefix}pagination-active{
+            &{
+                background-color: $primary-color;
+                a {
+                    color: white;
+                }
+            }
+        }
+    }
+}
