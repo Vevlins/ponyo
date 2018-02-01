@@ -39,11 +39,12 @@
         &:hover{
             &{
                 background-color: $primary-color;
+                border-color: $primary-color;
                 a {
                     color: white;
                 }
                 transition: {
-                    property:color,background-color;
+                    property:color,background-color,border-color;
                     duration: .3s;
                 }
             }
@@ -51,6 +52,7 @@
         &.#{$prefix}pagination-active{
             &{
                 background-color: $primary-color;
+                border-color: $primary-color;
                 a {
                     color: white;
                 }

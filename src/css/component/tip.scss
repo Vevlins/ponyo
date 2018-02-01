@@ -1,6 +1,32 @@
 @mixin tip(){
+    padding: 1rem;
+    background-color: white;
+    border: 1px solid $default-color;
+    text-align:center;
+    width: auto;
+    display: inline-block;
+    border-radius:4px;
+    position: relative;
+    margin-bottom: 1rem;
+}
 
+@mixin tip-caret(){
+    content: ' ';
+    left:50%;
+    transform: translate(-50%);
+    bottom: -6.0px;
+    background-color:white;
+    position: absolute;
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-left:1px solid $default-color;
+    border-top:1px solid $default-color;
+    transform: rotate(225deg)
 }
 .#{$prefix}tip{
-    
+    @include tip();
+    &:after{
+        @include tip-caret();
+    }
 }
