@@ -1,0 +1,42 @@
+@mixin title(){
+
+}
+
+@mixin meta(){
+    color: darken($default-color,20%);
+    font-size: 1.4rem!important;
+}
+
+@mixin content(){
+
+}
+
+@mixin lead(){
+    border: 1px solid $default-color;
+    background-color: lighten($default-color, 12%);
+    color: darken($default-color,50%);
+    border-radius: 2px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.#{$prefix}article{
+    margin: 1rem;
+    padding: 1rem;
+    & .#{$prefix}article-hd{
+        margin-bottom: 1rem;
+        & .#{$prefix}article-title{
+            @include title();
+        }
+        & .#{$prefix}article-meta{
+            @include meta();
+        }
+    }
+    & .#{$prefix}article-lead{
+        @include lead();
+    }
+    & .#{$prefix}article-content{
+        @include content();
+    }
+}

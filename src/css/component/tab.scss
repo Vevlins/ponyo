@@ -1,3 +1,45 @@
-@mixin tab{
-    
+@mixin tab-nav{
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid $default-color;
+    li {
+        display: inline-block;
+        padding: 1rem;
+        color: $primary-color;
+    }
+    li:not(.#{$prefix}tab-active):hover{
+        cursor: pointer;
+        background-color:lighten($default-color,10%);
+    }
+    li.#{$prefix}tab-active{
+        cursor: default;
+        color: initial;
+        border: 1px solid $default-color;
+        border-bottom: 1px solid white;
+        z-index: 2000;
+        margin-bottom: -1px;
+    }
+}
+@mixin tab-items{
+    padding: 1rem;
+    border: 1px solid $default-color;
+    border-width: 0 1px 1px 1px;
+    & .#{$prefix}tab-item {
+        &:not(.#{$prefix}tab-active){
+            display: none;
+        }
+        &.#{$prefix}tab-active{
+            display: block;
+        }
+    }
+}
+
+.#{$prefix}tab{
+    ul.#{$prefix}tab-nav{
+        @include tab-nav();
+    }
+    & .#{$prefix}tab-items{
+        @include tab-items();
+
+    }
 }

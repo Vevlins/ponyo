@@ -1,0 +1,39 @@
+@mixin modal(){
+
+}
+
+.#{$prefix}modal{
+    @include modal();
+    &:after{
+        content: ' ';
+        position: fixed;
+        z-index: 1000;
+        left:0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        background-color: rgba($color: #000000, $alpha: 0.6);
+    }
+    & .#{$prefix}modal-dialog {
+        background-color: white;
+        z-index: 1500!important;
+        position: fixed;
+        overflow: scroll;
+        top: 30%;
+        right: 25%;
+        left: 25%;
+        height: 300px;
+        max-height: 100%;
+        border-radius: 5px;
+        padding: 2rem;
+        border: 1px solid $default-color;
+        & .#{$prefix}modal-close:after{
+            content:'\e91e';
+            font-family: 'icomoon';
+            opacity: .5;
+            position: absolute;
+            right: .8rem;
+            top: .8rem;
+        }
+    }
+}
