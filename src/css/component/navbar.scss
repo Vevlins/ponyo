@@ -1,0 +1,59 @@
+@mixin navbar(){
+
+}
+
+.#{$prefix}navbar{
+    margin-bottom: 1rem;
+    position:relative;
+    background-color: lighten($default-color,10%);
+    .#{$prefix}navbar-brand{
+        padding: 1.4rem;
+        display: inline-block;
+        font-size: 1.8rem;
+        margin-right: 2rem;
+        font-weight: 600;
+        color: darken($default-color,40%);
+    }
+    .#{$prefix}navbar-items{
+        &.#{$prefix}navbar-right{
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+        .#{$prefix}navbar-item{
+            & a{
+                padding: 1.4rem;
+                color: darken($default-color,40%);
+                &:hover{
+                    background-color: $default-color;
+                }
+            }
+            display: inline-block;
+            .#{$prefix}navbar-search{
+                border: none;
+                border-bottom: 1px solid $default-color;
+                background-color: transparent;
+                color: darken($default-color,40%);
+                &:focus{
+                    transition: {
+                        duration:.2s;
+                        property:border-bottom-width;
+                    }
+                    border-bottom-width: 0;
+                    box-shadow: none;
+                }
+            }
+        }
+        .#{$prefix}navbar-active{
+            & a{
+                background-color:$default-color;
+                box-shadow: 1px 1px 10px rgba($default-color,.7);
+                // border-bottom: 1px solid $primary-color;
+            }
+        }
+    }
+}
