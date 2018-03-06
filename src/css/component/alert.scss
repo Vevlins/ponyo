@@ -1,4 +1,9 @@
-@mixin alert(){
+@mixin alert-color($color:$default-color){
+    color: darken($color,20%);
+    background-color: rgba($color,.3);
+}
+
+.#{$prefix}alert {
     z-index: 1000;
     padding: 1rem;
     position: relative;
@@ -13,42 +18,37 @@
         text-overflow: ellipsis;
         word-break: keep-all;
     }
-}
-@mixin alert-color($color:$default-color){
-    color: darken($color,20%);
-    background-color: rgba($color,.3);
+    @include alert-color();
 }
 
-.#{$prefix}alert {
-    & {
-        @include alert();
-        @include alert-color();
+.#{$prefix}alert-close {
+    font-family: 'icomoon';
+    vertical-align: middle;
+    display: inline-block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    opacity: .5;
+    &:hover{
+        cursor: pointer;
     }
-    &.#{$prefix}alert-primary{
-        @include alert-color($primary-color);
+    &:before{
+        content: "\e91e";
     }
-    &.#{$prefix}alert-success{
-        @include alert-color($success-color);
-    }
-    &.#{$prefix}alert-warn{
-        @include alert-color($warn-color);
-    }
-    &.#{$prefix}alert-danger{
-        @include alert-color($danger-color);
-    }
-    & .#{$prefix}alert-close {
-        font-family: 'icomoon' !important;
-        vertical-align: middle;
-        display: inline-block;
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        opacity: .5;
-        &:hover{
-            cursor: pointer;
-        }
-        &:before{
-            content: "\e91e";
-        }
-    }
+}
+
+.#{$prefix}alert-primary{
+    @include alert-color($primary-color);
+}
+
+.#{$prefix}alert-success{
+    @include alert-color($success-color);
+}
+
+.#{$prefix}alert-warn{
+    @include alert-color($warn-color);
+}
+
+.#{$prefix}alert-danger{
+    @include alert-color($danger-color);
 }

@@ -1,32 +1,28 @@
 @mixin img-radius($radius:0){
     border-radius: $radius;
 }
-@mixin img-border(){
+
+@mixin img-blur($blur:6px){
+    filter: blur($blur);
+}
+
+.#{$prefix}img-radius {
+    @include img-radius(10%);
+}
+.#{$prefix}img-round {
+    @include img-radius(100%);
+}
+.#{$prefix}img-border {
     border:1px solid $default-color;
     background-color: white;
     padding: 2px;
 }
-@mixin img-blur($blur:6px){
-    filter: blur($blur);
+.#{$prefix}img-blur {
+    @include img-blur();
 }
-.#{$prefix}img {
-    &{
-    }
-    &.#{$prefix}img-radius {
-        @include img-radius(10%);
-    }
-    &.#{$prefix}img-round {
-        @include img-radius(100%);
-    }
-    &.#{$prefix}img-border {
-        @include img-border(); 
-    }
-    &.#{$prefix}img-blur {
-        @include img-blur();
-    }
-    @for $value from 1 to 6{
-        &.#{$prefix}img-blur-#{$value} {
-            @include img-blur(2px*$value);
-        }
+
+@for $value from 1 to 6{
+    .#{$prefix}img-blur-#{$value} {
+        @include img-blur(2px*$value);
     }
 }

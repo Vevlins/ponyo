@@ -1,4 +1,38 @@
-@mixin btn() {
+@mixin btn-plain($color:$default-color) {
+    background-color: $white-color;
+    color: $color;
+    border: 1px solid $color;
+    &:hover:not(:disabled) {
+        background-color: $color;
+        color: $white-color;
+    }
+}
+
+@mixin btn-color($background-color:$primary-color, $color:$white-color) {
+    &:hover:not(:disabled) {
+        background: {
+            color: darken($background-color, 10%);
+        }
+    }
+    &:active:not(:disabled) {
+        background-color: darken($background-color, 30%);
+    }
+    background-color: $background-color;
+    color: $color;
+}
+
+@mixin btn-radius($radius:0px) {
+    border-radius: $radius;
+}
+
+@mixin btn-active($background-color) {
+    background-color: darken($background-color, 30%);
+    &:hover:not(:disabled) {
+        background-color: darken($background-color, 30%);
+    }
+}
+
+.#{$prefix}btn {
     cursor: pointer;
     vertical-align: middle;
     background: {
@@ -14,134 +48,92 @@
     outline: none;
     &:hover:not(:disabled) {
         transition: {
-               property: background-color;
-               duration: 200ms;
-               timing-function: ease-in-out;
-       }
-   }
-}
-
-@mixin btn-plain($color){
-    background-color: $white-color;
-    color: $color;
-    border: 1px solid $color;
-    &:hover:not(:disabled){
-        background-color: $color;
-        color: $white-color;
-    }
-}
-@mixin btn-color($background-color:$primary-color,$color:$white-color) {
-    &:hover:not(:disabled) {
-        background: {
-               color: darken($background-color, 10%);
-       }
-   }
-   &:active:not(:disabled) {
-    background-color: darken($background-color, 30%);
-}
-    background-color: $background-color;
-    color: $color;
-}
-
-@mixin btn-radius($radius:0px){
-    border-radius: $radius;
-}
-
-@mixin btn-block($width:auto){
-    width: $width;
-}
-
-@mixin btn-disabled(){
-    cursor: not-allowed;
-    opacity: .5;
-}
-
-@mixin btn-active($background-color){
-    background-color: darken($background-color, 30%);
-    &:hover:not(:disabled){
-        background-color: darken($background-color, 30%);
-    }
-}
-
-.#{$prefix}btn {
-    & {
-        @include btn();
-        @include btn-color($background-color:$default-color);
-        &.#{$prefix}btn-plain{
-            @include btn-plain($default-color);
+            property: background-color;
+            duration: 200ms;
+            timing-function: ease-in-out;
         }
-        &.#{$prefix}btn-active{
-            @include btn-active($default-color);
-        }
+    }
+    @include btn-color($background-color:$default-color);
+    &.#{$prefix}btn-plain {
+        @include btn-plain($default-color);
+    }
+    &.#{$prefix}btn-active {
+        @include btn-active($default-color);
     }
     &:disabled {
-        @include btn-disabled();
+        cursor: not-allowed;
+        opacity: .5;
     }
-    &.#{$prefix}btn-active{
+    &.#{$prefix}btn-plain {
+        @include btn-plain();
+    }
+}
+
+.#{$prefix}btn-active {
+    box-shadow: inset 0 .8rem 1.2rem rgba(0, 0, 0, .3);
+} //color
+.#{$prefix}btn-primary {
+    @include btn-color($primary-color);
+    &.#{$prefix}btn-plain {
+        @include btn-plain($primary-color);
+    }
+    &.#{$prefix}btn-active {
+        @include btn-active($primary-color);
+    }
+}
+
+.#{$prefix}btn-success {
+    @include btn-color($success-color);
+    &.#{$prefix}btn-plain {
+        @include btn-plain($success-color);
+    }
+    &.#{$prefix}btn-active {
+        @include btn-active($success-color);
+    }
+}
+
+.#{$prefix}btn-warn {
+    @include btn-color($warn-color);
+    &.#{$prefix}btn-plain {
+        @include btn-plain($warn-color);
+    }
+    &.#{$prefix}btn-active {
+        @include btn-active($warn-color);
+    }
+}
+
+.#{$prefix}btn-danger {
+    @include btn-color($danger-color);
+    &.#{$prefix}btn-plain {
+        @include btn-plain($danger-color);
+    }
+    &.#{$prefix}btn-active {
+        @include btn-active($danger-color);
+    }
+}
+
+@each $key,$value in $btn-size-map {
+    .#{$prefix}btn-#{$key} {
+        font-size: $value;
+    }
+}
+
+.#{$prefix}btn-round {
+    @include btn-radius(100px);
+}
+.#{$prefix}btn-radius {
+    @include btn-radius(4px);
+} //btn-block
+.#{$prefix}btn-block {
+    width: 100%;
+}
+.#{$prefix}btn-plain {
+    &:active:not(:disabled) {
         box-shadow: inset 0 .8rem 1.2rem rgba(0, 0, 0, .3);
-    }
-    &.#{$prefix}btn-plain{
-        &:active:not(:disabled) {
-            box-shadow: inset 0 .8rem 1.2rem rgba(0, 0, 0, .3);
-            transition: {
-                property: background-color;
-                duration: 100ms;
-                timing-function: ease-out;
+        transition: {
+            property: background-color;
+            duration: 100ms;
+            timing-function: ease-out;
         }
-        }
-    }
-    //color
-    &.#{$prefix}btn-primary {
-        @include btn-color($primary-color);
-        &.#{$prefix}btn-plain{
-            @include btn-plain($primary-color);
-        }
-        &.#{$prefix}btn-active{
-            @include btn-active($primary-color);
-        }
-    }
-    &.#{$prefix}btn-success {
-        @include btn-color($success-color);
-        &.#{$prefix}btn-plain{
-            @include btn-plain($success-color);
-        }
-        &.#{$prefix}btn-active{
-            @include btn-active($success-color);
-        }
-    }
-    &.#{$prefix}btn-warn {
-        @include btn-color($warn-color);
-        &.#{$prefix}btn-plain{
-            @include btn-plain($warn-color);
-        }
-        &.#{$prefix}btn-active{
-            @include btn-active($warn-color);
-        }
-    }
-    &.#{$prefix}btn-danger {
-        @include btn-color($danger-color);
-        &.#{$prefix}btn-plain{
-            @include btn-plain($danger-color);
-        }
-        &.#{$prefix}btn-active{
-            @include btn-active($danger-color);
-        }
-    }
-    //radius
-    &.#{$prefix}btn-round {
-        @include btn-radius(100px);
-    }
-    &.#{$prefix}btn-radius {
-        @include btn-radius(4px);
-    }
-    //size
-    @each $key,$value in $btn-size-map {
-        &.#{$prefix}btn-#{$key} {
-            font-size: $value;
-        }
-    }
-    //btn-block
-    &.#{$prefix}btn-block {
-        @include btn-block(100%);
     }
 }

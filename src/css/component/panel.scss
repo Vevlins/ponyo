@@ -1,8 +1,4 @@
-@mixin panel(){
-    box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
-    background-color:$white-color;
-    margin: 1rem;
-}
+
 @mixin panel-hd ($color:$default-color){
     border-bottom:  1px solid rgba($color,.2);
     padding: 1rem;
@@ -12,12 +8,10 @@
     color: darken($color,10%);
     background-color: rgba($color,.2);
 }
-@mixin panel-bd (){
-    padding: 1.5rem;
-}
+
 @mixin panel-color($color:$default-color){
     border: 1px solid rgba($color,.5);
-    & .#{$prefix}panel-hd {
+    .#{$prefix}panel-hd {
         border-bottom:  1px solid rgba($color,.2);
         color: darken($color,10%);
         background-color: rgba($color,.2);
@@ -25,27 +19,28 @@
 }
 
 .#{$prefix}panel {
-    & {
-        @include panel();
-        @include panel-color();
-        & .#{$prefix}panel-hd{
-            @include panel-hd();
-            color: darken($default-color,40%);
-        }
-    }
-    & .#{$prefix}panel-bd {
-        @include panel-bd();
-    }
-    &.#{$prefix}panel-primary {
-        @include panel-color($primary-color);
-    }
-    &.#{$prefix}panel-success {
-        @include panel-color($success-color);
-    }
-    &.#{$prefix}panel-warn {
-        @include panel-color($warn-color);
-    }
-    &.#{$prefix}panel-danger {
-        @include panel-color($danger-color);
-    }
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+    background-color:$white-color;
+    margin: 1rem;
+    @include panel-color();
+}
+
+.#{$prefix}panel-hd{
+    @include panel-hd();
+    color: darken($default-color,40%);
+}
+.#{$prefix}panel-bd {
+    padding: 1.5rem;
+}
+.#{$prefix}panel-primary {
+    @include panel-color($primary-color);
+}
+.#{$prefix}panel-success {
+    @include panel-color($success-color);
+}
+.#{$prefix}panel-warn {
+    @include panel-color($warn-color);
+}
+.#{$prefix}panel-danger {
+    @include panel-color($danger-color);
 }

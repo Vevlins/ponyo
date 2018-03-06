@@ -1,50 +1,32 @@
-@mixin grid(){
+.#{$prefix}grid {
     display: block;
     width: 100%;
     position: relative;
     overflow: hidden;
-}
-
-@mixin grid-item(){
-    display: inline-block;
-    float: left;
-    overflow: hidden;
-    box-sizing: border-box;
-}
-
-@mixin grid-offset($offset:0) {
-    margin-left: $offset;
-}
-
-.#{$prefix}grid {
-    & {
-        @include grid();
-        & > *{
-            @include grid-item();
-        }
+    &>* {
+        display: inline-block;
+        float: left;
+        overflow: hidden;
+        box-sizing: border-box;
     }
-    //offset
-    @for $i from 1 to 12 {
-        & .#{$prefix}grid-offset-#{$i}{
-               @include grid-offset(percentage($i/12));
-        }
-     }
-    //general;
-    @for $i from 1 to 12 {
-        & .#{$prefix}grid-#{$i}{
+} //screen query
+@each $key,
+$value in $screen-size-map {
+    @media (min-width: nth($value, 1)) and (max-width: nth($value, 2)) {
+        @for $i from 1 to 12 {
+            .#{$prefix}grid-#{$key}-#{$i} {
                 width:percentage($i/12);
-        }
-     }
-
-    //screen query
-    @each $key,$value in $screen-size-map{
-        @media (min-width: nth($value,1)) and (max-width: nth($value,2)) {
-            @for $i from 1 to 12 {
-                & .#{$prefix}grid-#{$key}-#{$i}{
-                    width:percentage($i/12);
-                }
-            }   
+            }
         }
     }
-
+} //offset
+@for $i from 1 to 12 {
+    .#{$prefix}grid-offset-#{$i} {
+        margin-left: percentage($i/12);
+    }
+} //general;
+@for $i from 1 to 12 {
+    .#{$prefix}grid-#{$i} {
+        width: percentage($i/12);
+    }
 }

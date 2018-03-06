@@ -1,4 +1,9 @@
-@mixin notice(){
+
+@mixin notice-color($background-color:$white-color,$color:$white-color){
+    background-color: $background-color;
+    color: $color;
+}
+.#{$prefix}notice {
     padding: 1.6rem;
     border: 1px solid rgba($default-color,.3);
     width: 30rem;
@@ -10,20 +15,27 @@
     overflow: hidden;
     border-radius: 5px;
     z-index: 2000;
+    @include notice-color($background-color:$white-color,$color:$black-color);
 }
 
-@mixin notice-color($background-color:$white-color,$color:$white-color){
-    background-color: $background-color;
-    color: $color;
+.#{$prefix}notice-primary{
+    @include notice-color($primary-color);
 }
-
-@mixin notice-head(){
+.#{$prefix}notice-success{
+    @include notice-color($success-color);
+}
+.#{$prefix}notice-warn{
+    @include notice-color($warn-color);
+}
+.#{$prefix}notice-danger{
+    @include notice-color($danger-color);
+}
+.#{$prefix}notice-head {
     height: 1.8rem;
     margin: 0 0 1rem 0;
     position: relative;
 }
-
-@mixin notice-title(){
+.#{$prefix}notice-title {
     height: 1.8rem;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -35,8 +47,7 @@
     font-weight: 600;
     margin: 0 2rem 0 0;
 }
-
-@mixin notice-close(){
+.#{$prefix}notice-close {
     font-family: 'icomoon';
     vertical-align: middle;
     position: absolute;
@@ -49,41 +60,9 @@
         content: "\e91e";
     }
 }
-
-@mixin notice-content(){
+& .#{$prefix}notice-content {
     font-size: 1.4rem;
     overflow: hidden;
     margin: 0;
     word-break:break-all;
-}
-
-.#{$prefix}notice {
-    & {
-        @include notice();
-        @include notice-color($background-color:$white-color,$color:$black-color);
-    }
-    &.#{$prefix}notice-primary{
-        @include notice-color($primary-color);
-    }
-    &.#{$prefix}notice-success{
-        @include notice-color($success-color);
-    }
-    &.#{$prefix}notice-warn{
-        @include notice-color($warn-color);
-    }
-    &.#{$prefix}notice-danger{
-        @include notice-color($danger-color);
-    }
-    & .#{$prefix}notice-head {
-        @include notice-head();
-    }
-    & .#{$prefix}notice-title {
-        @include notice-title();
-    }
-    & .#{$prefix}notice-close {
-        @include notice-close();
-    }
-    & .#{$prefix}notice-content {
-        @include notice-content();
-    }
 }

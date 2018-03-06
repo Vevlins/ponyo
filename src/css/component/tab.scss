@@ -1,4 +1,4 @@
-@mixin tab-nav{
+.#{$prefix}tab-nav {
     margin: 0;
     padding: 0;
     border-bottom: 1px solid $default-color;
@@ -7,13 +7,13 @@
         padding: 1rem;
         color: $primary-color;
     }
-    li:not(.#{$prefix}tab-active):hover{
+    li:not(.#{$prefix}tab-active):hover {
         cursor: pointer;
-        background-color:lighten($default-color,10%);
+        background-color: lighten($default-color, 10%);
     }
 }
 
-@mixin tab-active(){
+li.#{$prefix}tab-active {
     cursor: default;
     color: initial;
     border: 1px solid $default-color;
@@ -21,32 +21,15 @@
     z-index: 2000;
     margin-bottom: -1px;
 }
-@mixin tab-items{
+
+.#{$prefix}tab-items {
     padding: 1rem;
     border: 1px solid $default-color;
     border-width: 0 1px 1px 1px;
 }
 
-@mixin tab-item-show{
-    &:not(.#{$prefix}tab-active){
+.#{$prefix}tab-item {
+    &:not(.#{$prefix}tab-active) {
         display: none;
-    }
-}
-
-.#{$prefix}tab{
-    &{
-       .#{$prefix}tab-nav{
-            @include tab-nav();
-            li.#{$prefix}tab-active{
-                @include tab-active();
-            } 
-        }
-        .#{$prefix}tab-items{
-            @include tab-items();
-            & .#{$prefix}tab-item {
-                @include tab-item-show();
-            }
-        }
-        
     }
 }

@@ -1,72 +1,52 @@
-@mixin pagination(){
+.#{$prefix}pagination{
     padding: 0;
     text-align: center;
-}
-
-@mixin pagination-item(){
-    display: inline-block;
-    border: 1px solid $default-color;
-    margin: .5rem;
-    & a {
-        display: block;
-        width: 100%;
-        padding: .5rem 1rem;
-    }
-    &:hover{
-        &{
+    li {
+        display: inline-block;
+        border: 1px solid $default-color;
+        margin: .5rem;
+        a {
+            display: block;
+            width: 100%;
+            padding: .5rem 1rem;
+        }
+        &:hover{
             background-color: $primary-color;
-            border-color: $primary-color;
-            a {
-                color: white;
-            }
-            transition: {
-                property:color,background-color,border-color;
-                duration: .3s;
-            }
+                border-color: $primary-color;
+                a {
+                    color: white;
+                }
+                transition: {
+                    property:color,background-color,border-color;
+                    duration: .3s;
+                }
         }
     }
 }
 
-@mixin pagination-prev(){
-    & a::before{
+
+.#{$prefix}pagination-left{
+    text-align: left;
+}
+.#{$prefix}pagination-right{
+    text-align: right;
+}
+
+.#{$prefix}pagination-prev{
+    a::before{
         content: '« ';
     }
 }
-@mixin pagination-next(){
-    & a::after{
+.#{$prefix}pagination-next{
+    a::after{
         content: ' »';
     }
 }
-@mixin pagination-active(){
-    &{
-        background-color: $primary-color;
-        border-color: $primary-color;
-        a {
-            color: white;
-        }
+.#{$prefix}pagination-active{
+    background-color: $primary-color;
+    border-color: $primary-color;
+    a {
+        color: white;
     }
 }
 
-.#{$prefix}pagination{
-    &{
-        @include pagination();
-    }
-     &.#{$prefix}pagination-left{
-        text-align: left;
-    }
-    &.#{$prefix}pagination-right{
-        text-align: right;
-    }
-    & li {
-        @include pagination-item();
-        &.#{$prefix}pagination-prev{
-            @include pagination-prev();
-        }
-        &.#{$prefix}pagination-next{
-            @include pagination-next();
-        }
-        &.#{$prefix}pagination-active{
-            @include pagination-active();
-        }
-    }
-}

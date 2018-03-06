@@ -1,33 +1,37 @@
-@mixin ul(){
+.#{$prefix}ul{
     padding: 0;
     list-style: none;
-    & li{
+    li{
         padding: 1rem .2rem;
     }
 }
 
-@mixin ul-horizon(){
-    & li {
+
+.#{$prefix}ul-horizon{
+    li {
         padding: .2rem;
         display: inline-block;
     }
 }
-
-@mixin ul-divider(){
-    & li{
-        border:1px solid $default-color;
+.#{$prefix}ul-divider{
+    &.#{$prefix}ul-horizon li{
+        border:none;
+        &+li::before{
+            content: '/';
+        }
+    }
+    &:not(.#{$prefix}ul-horizon) li {
+        border-width:0 0 1px 0;
     }
 }
-
-@mixin ul-stripe(){
-    & li:nth-child(odd){
+.#{$prefix}ul-stripe{
+    li:nth-child(odd){
         background-color:rgba($default-color,.2);
     }
 }
-
-@mixin ul-border(){
+.#{$prefix}ul-border{
     border: 1px solid $default-color;
-    & li{
+    li{
         border:1px solid $default-color;
         padding: 1rem;
     }
@@ -37,41 +41,18 @@
     &:not(.#{$prefix}ul-horizon) li {
         border-width:0 0 1px 0;
     }
-    & li:last-child{
+    li:last-child{
         border: none;
     }
 }
 
-.#{$prefix}ul{
-    @include ul();
-    &.#{$prefix}ul-horizon{
-        @include ul-horizon();
-    }
-    &.#{$prefix}ul-divider{
-        &.#{$prefix}ul-horizon li{
-            border:none;
-            &+li::before{
-                content: '/';
-            }
-        }
-        &:not(.#{$prefix}ul-horizon) li {
-            border-width:0 0 1px 0;
-        }
-    }
-    &.#{$prefix}ul-stripe{
-        @include ul-stripe();
-    }
-    &.#{$prefix}ul-border{
-        @include ul-border();
-    }
-}
 
-@mixin dl(){
-    & dd{
+.#{$prefix}dl{
+    dd{
         margin: 0;
         padding: 1rem .2rem;
     }
-    & dt {
+    dt {
         margin: 0;
         padding: 0 .2rem 1rem .2rem;
         font-weight: 100;
@@ -79,16 +60,9 @@
         font-size: 1.4rem;
     }
 }
-@mixin dl-divider(){
-    & dt {
+.#{$prefix}dl-divider{
+    dt {
         border-bottom: 1px solid $default-color;
         padding: 0 .2rem 2rem .2rem;
-    }
-}
-
-.#{$prefix}dl{
-    @include dl();
-    &.#{$prefix}dl-divider{
-        @include dl-divider();
     }
 }

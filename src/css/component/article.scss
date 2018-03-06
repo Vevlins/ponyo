@@ -1,23 +1,14 @@
-@mixin article(){
+.#{$prefix}article{
     margin: 1rem;
     padding: 1rem;
 }
-@mixin title(){
 
-}
-
-@mixin meta(){
+.#{$prefix}article-meta{
     color: darken($default-color,20%);
     font-size: 1.4rem;
 }
 
-@mixin content(){
-    & p{
-        text-indent: 3.2rem;
-    }
-}
-
-@mixin lead(){
+.#{$prefix}article-lead{
     border: 1px solid $default-color;
     background-color: lighten($default-color, 12%);
     color: darken($default-color,50%);
@@ -27,20 +18,8 @@
     font-size: 1.4rem;
 }
 
-.#{$prefix}article{
-    @include article();
-    & .#{$prefix}article-hd{
-        & .#{$prefix}article-title{
-            @include title();
-        }
-        & .#{$prefix}article-meta{
-            @include meta();
-        }
-    }
-    & .#{$prefix}article-lead{
-        @include lead();
-    }
-    & .#{$prefix}article-content{
-        @include content();
+.#{$prefix}article-content{
+    p{
+        text-indent: 3.2rem;
     }
 }

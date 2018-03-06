@@ -1,14 +1,4 @@
-@mixin badge() {
-    cursor: pointer;
-    color: $white-color;
-    font: {
-        size: 1.1rem;
-        weight: 600;
-    }
-    padding: .2rem .5rem;
-}
-
-@mixin badge-color($background-color:$default-color){
+@mixin badge-color($background-color:$default-color) {
     background-color: $background-color;
 }
 
@@ -17,35 +7,45 @@
 }
 
 .#{$prefix}badge {
-    //color
-    & {
-        @include badge();
-        @include badge-color();
+    cursor: pointer;
+    color: $white-color;
+    font: {
+        size: 1.1rem;
+        weight: 600;
     }
-    &.#{$prefix}badge-primary {
-        @include badge-color($primary-color);
-        
-    }
-    &.#{$prefix}badge-success {
-        @include badge-color($success-color);
-    }
-    &.#{$prefix}badge-warn {
-        @include badge-color($warn-color);
-    }
-    &.#{$prefix}badge-danger {
-        @include badge-color($danger-color);
-    }
-    //radius
-    &.#{$prefix}badge-radius {
-        @include badge-radius(4px);
-    }
-    &.#{$prefix}badge-round {
-        @include badge-radius(100px);
-    }
-    // size
-    @each $key,$value in $badge-size-map {
-        &.#{$prefix}badge-#{$key} {
-            font-size: $value;
-        }
+    padding: .2rem .5rem;
+    @include badge-color();
+}
+
+.#{$prefix}badge-primary {
+    @include badge-color($primary-color);
+}
+
+.#{$prefix}badge-success {
+    @include badge-color($success-color);
+}
+
+.#{$prefix}badge-warn {
+    @include badge-color($warn-color);
+}
+
+.#{$prefix}badge-danger {
+    @include badge-color($danger-color);
+}
+
+//radius
+.#{$prefix}badge-radius {
+    @include badge-radius(4px);
+}
+
+.#{$prefix}badge-round {
+    @include badge-radius(100px);
+}
+
+// size
+@each $key,
+$value in $badge-size-map {
+    .#{$prefix}badge-#{$key} {
+        font-size: $value;
     }
 }

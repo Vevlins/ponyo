@@ -1,4 +1,4 @@
-@mixin input(){
+.#{$prefix}input{
     border: 1px solid $default-color;
     outline: none;
     line-height: 1.2;
@@ -12,14 +12,10 @@
             duration: .3s; 
         }
     }
-
 }
 
-.#{$prefix}input{
-    @include input();
-}
 .#{$prefix}textarea{
-    @include input();
+    @extend .#{$prefix}input;
     overflow: auto;
     height: 150px;
     width: 100%;
@@ -53,7 +49,7 @@
     height: 3.2rem;
     overflow: hidden;
     cursor: pointer!important;
-    & input[type="file"]{
+    input[type="file"]{
         cursor: pointer!important;
         position: absolute;
         top: 0;
