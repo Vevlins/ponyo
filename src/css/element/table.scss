@@ -1,18 +1,8 @@
-.#{$prefix}table{
+@mixin table(){
+    font-size: 1.4rem;
+    border: 1px solid $default-color;
     tr,caption{
         background-color: $white-color;
-    }
-    &{
-        font-size: 1.4rem;
-        border: 1px solid $default-color;
-    }
-    &.#{$prefix}table-stripe {
-        tbody tr:nth-child(odd){
-            background-color:rgba($default-color,.2);
-        }
-    }
-    &.#{$prefix}table-radius {
-        border-radius: 10px;
     }
     tr,caption,thead{
         border-bottom:solid 1px $default-color;
@@ -24,15 +14,43 @@
         padding: 1rem 1rem;
         border: 1px solid $default-color;
     }
+}
+
+@mixin table-hover(){
+    tbody tr:hover{
+        background-color: rgba($default-color,.6);
+        transition: {
+            duration:300ms;
+        }
+    }
+}
+
+@mixin table-active(){
+    background-color:$active-color!important;
+}
+
+@mixin table-radius(){
+    border-radius: 10px;
+}
+
+@mixin table-stripe(){
+    tbody tr:nth-child(odd){
+        background-color:rgba($default-color,.2);
+    }
+}
+
+.#{$prefix}table{
+    @include table();
+    &.#{$prefix}table-stripe {
+        @include table-stripe();
+    }
+    &.#{$prefix}table-radius {
+        @include table-radius();
+    }
     tr.#{$prefix}table-active {
-        background-color:$active-color!important;
+        @include table-active();
     }
     &.#{$prefix}table-hover {
-        tbody tr:hover{
-            background-color: rgba($default-color,.6);
-            transition: {
-                duration:300ms;
-            }
-        }
+        @include table-hover();
     }
 }

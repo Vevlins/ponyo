@@ -1,10 +1,6 @@
-@mixin badge($background-color:$default-color,$color:$white-color) {
-    display: inline-block;
+@mixin badge() {
     cursor: pointer;
-    background: {
-        color:$background-color;
-    }
-    color: $color;
+    color: $white-color;
     font: {
         size: 1.1rem;
         weight: 600;
@@ -12,7 +8,7 @@
     padding: .2rem .5rem;
 }
 
-@mixin badge-color($background-color:$defalut-color){
+@mixin badge-color($background-color:$default-color){
     background-color: $background-color;
 }
 
@@ -23,10 +19,12 @@
 .#{$prefix}badge {
     //color
     & {
-        @include badge($color:$white-color);
+        @include badge();
+        @include badge-color();
     }
     &.#{$prefix}badge-primary {
-        @include badge($primary-color);
+        @include badge-color($primary-color);
+        
     }
     &.#{$prefix}badge-success {
         @include badge-color($success-color);

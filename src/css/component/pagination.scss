@@ -1,16 +1,48 @@
 @mixin pagination(){
-    &{
-        padding: 0;
-        text-align: center;
+    padding: 0;
+    text-align: center;
+}
+
+@mixin pagination-item(){
+    display: inline-block;
+    border: 1px solid $default-color;
+    margin: .5rem;
+    & a {
+        display: block;
+        width: 100%;
+        padding: .5rem 1rem;
     }
-    & li { 
-        display: inline-block;
-        border: 1px solid $default-color;
-        margin: .5rem;
-        & a {
-            display: block;
-            width: 100%;
-            padding: .5rem 1rem;
+    &:hover{
+        &{
+            background-color: $primary-color;
+            border-color: $primary-color;
+            a {
+                color: white;
+            }
+            transition: {
+                property:color,background-color,border-color;
+                duration: .3s;
+            }
+        }
+    }
+}
+
+@mixin pagination-prev(){
+    & a::before{
+        content: '« ';
+    }
+}
+@mixin pagination-next(){
+    & a::after{
+        content: ' »';
+    }
+}
+@mixin pagination-active(){
+    &{
+        background-color: $primary-color;
+        border-color: $primary-color;
+        a {
+            color: white;
         }
     }
 }
@@ -26,37 +58,15 @@
         text-align: right;
     }
     & li {
+        @include pagination-item();
         &.#{$prefix}pagination-prev{
-            & a::before{
-                content: '« ';
-            }
+            @include pagination-prev();
         }
         &.#{$prefix}pagination-next{
-            & a::after{
-                content: ' »';
-            }
-        }
-        &:hover{
-            &{
-                background-color: $primary-color;
-                border-color: $primary-color;
-                a {
-                    color: white;
-                }
-                transition: {
-                    property:color,background-color,border-color;
-                    duration: .3s;
-                }
-            }
+            @include pagination-next();
         }
         &.#{$prefix}pagination-active{
-            &{
-                background-color: $primary-color;
-                border-color: $primary-color;
-                a {
-                    color: white;
-                }
-            }
+            @include pagination-active();
         }
     }
 }

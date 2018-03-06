@@ -1,14 +1,20 @@
+@mixin article(){
+    margin: 1rem;
+    padding: 1rem;
+}
 @mixin title(){
 
 }
 
 @mixin meta(){
     color: darken($default-color,20%);
-    font-size: 1.4rem!important;
+    font-size: 1.4rem;
 }
 
 @mixin content(){
-
+    & p{
+        text-indent: 3.2rem;
+    }
 }
 
 @mixin lead(){
@@ -22,10 +28,8 @@
 }
 
 .#{$prefix}article{
-    margin: 1rem;
-    padding: 1rem;
+    @include article();
     & .#{$prefix}article-hd{
-        margin-bottom: 1rem;
         & .#{$prefix}article-title{
             @include title();
         }

@@ -4,22 +4,24 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+*+h1,*+h2,*+h3,*+h4,*+h5,*+h6{
+    margin-top:2em;
+}
+h1,h2,h3,h4,h5,h6{
+    font-weight: 600;
+    margin-bottom: 1.6rem;
+}
 @for $i from 1 to 7 {
     *+h#{$i}{
         margin-top:2em;
     }
     h#{$i}{
-        font-weight: 600;
-        margin-bottom: 1.6rem;
         font-size: nth($h-size-list,$i);
     }
 }
 hr{
-    border: {
-        width: 0 0 1px 0;
-        style: solid;
-        color: #eee;
-    }
+    border: 1px solid #eee;
+    border-width: 0 0 1px 0;
 }
 blockquote{
     overflow: hidden;

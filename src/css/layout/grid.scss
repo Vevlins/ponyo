@@ -5,10 +5,9 @@
     overflow: hidden;
 }
 
-@mixin grid-item($width){
+@mixin grid-item(){
     display: inline-block;
     float: left;
-    width: $width;
     overflow: hidden;
     box-sizing: border-box;
 }
@@ -20,6 +19,9 @@
 .#{$prefix}grid {
     & {
         @include grid();
+        & > *{
+            @include grid-item();
+        }
     }
     //offset
     @for $i from 1 to 12 {
@@ -30,7 +32,7 @@
     //general;
     @for $i from 1 to 12 {
         & .#{$prefix}grid-#{$i}{
-                @include grid-item(percentage($i/12));
+                width:percentage($i/12);
         }
      }
 
@@ -39,7 +41,7 @@
         @media (min-width: nth($value,1)) and (max-width: nth($value,2)) {
             @for $i from 1 to 12 {
                 & .#{$prefix}grid-#{$key}-#{$i}{
-                    @include grid-item(percentage($i/12));
+                    width:percentage($i/12);
                 }
             }   
         }

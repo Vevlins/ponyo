@@ -27,13 +27,16 @@
         border-radius: 5px;
         padding: 2rem;
         border: 1px solid $default-color;
-        & .#{$prefix}modal-close:after{
-            content:'\e91e';
-            font-family: 'icomoon';
-            opacity: .5;
-            position: absolute;
-            right: .8rem;
-            top: .8rem;
+        & .#{$prefix}modal-close{
+            cursor: pointer;
+            &:after{
+                content:'\e91e';
+                font-family: 'icomoon';
+                opacity: .5;
+                position: absolute;
+                right: .8rem;
+                top: .8rem;
+            }
         }
     }
 }

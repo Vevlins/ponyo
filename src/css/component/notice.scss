@@ -1,9 +1,6 @@
-@mixin notice($background-color:$white-color,$color:$white-color){
-    background-color: $background-color;
-    color: $color;
+@mixin notice(){
     padding: 1.6rem;
     border: 1px solid rgba($default-color,.3);
-    display: block;
     width: 30rem;
     max-width: 90%;
     position: fixed;
@@ -20,9 +17,50 @@
     color: $color;
 }
 
+@mixin notice-head(){
+    height: 1.8rem;
+    margin: 0 0 1rem 0;
+    position: relative;
+}
+
+@mixin notice-title(){
+    height: 1.8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: absolute;
+    word-break: keep-all;
+    left: 0;
+    top:0;
+    right: 2rem;
+    font-weight: 600;
+    margin: 0 2rem 0 0;
+}
+
+@mixin notice-close(){
+    font-family: 'icomoon';
+    vertical-align: middle;
+    position: absolute;
+    right: 0;
+    opacity: .5;
+    &:hover{
+        cursor: pointer;
+    }
+    &:before{
+        content: "\e91e";
+    }
+}
+
+@mixin notice-content(){
+    font-size: 1.4rem;
+    overflow: hidden;
+    margin: 0;
+    word-break:break-all;
+}
+
 .#{$prefix}notice {
     & {
-        @include notice($color:$black-color);
+        @include notice();
+        @include notice-color($background-color:$white-color,$color:$black-color);
     }
     &.#{$prefix}notice-primary{
         @include notice-color($primary-color);
@@ -37,43 +75,15 @@
         @include notice-color($danger-color);
     }
     & .#{$prefix}notice-head {
-        display: block;
-        height: 1.8rem;
-        margin: 0 0 1rem 0;
-        position: relative;
+        @include notice-head();
     }
     & .#{$prefix}notice-title {
-        display: block;
-        height: 1.8rem;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        position: absolute;
-        word-break: keep-all;
-        left: 0;
-        top:0;
-        right: 2rem;
-        font-weight: 600;
-        margin: 0 2rem 0 0;
+        @include notice-title();
     }
     & .#{$prefix}notice-close {
-        font-family: 'icomoon' !important;
-        vertical-align: middle;
-        display: inline-block;
-        position: absolute;
-        right: 0;
-        opacity: .5;
-        &:hover{
-            cursor: pointer;
-        }
-        &:before{
-            content: "\e91e";
-        }
+        @include notice-close();
     }
     & .#{$prefix}notice-content {
-        font-size: 1.4rem;
-        overflow: hidden;
-        display: block;
-        margin: 0;
-        word-break:break-all;
+        @include notice-content();
     }
 }

@@ -2,7 +2,6 @@
     border: 1px solid $default-color;
     outline: none;
     line-height: 1.2;
-    font-size: 1.6rem;
     padding: .6rem;
     &:focus{
         outline: none;
@@ -25,10 +24,7 @@
     height: 150px;
     width: 100%;
 }
-.#{$prefix}checkbox{
-    margin-right: 1rem;
-}
-.#{$prefix}radio{
+.#{$prefix}checkbox,.#{$prefix}radio{
     margin-right: 1rem;
 }
 .#{$prefix}select{

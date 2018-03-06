@@ -27,7 +27,6 @@ html(lang='en')
                     },500);
                 })
                 $('#hide').click(function(){
-                    console.log(111);
                     $('#hide').addClass("fadeOut");
                     setTimeout(()=>{
                         $('#hide').hide();
@@ -36,6 +35,8 @@ html(lang='en')
                 })
             })
     body
+        h2 排版相关
+
         p.p-print-hide.
             无论走到哪里，都应该记住，过去都是假的，回忆是一条没有尽头的路，一切以往的春天都不复存在，就连那最坚韧而又狂乱的爱情归根结底也不过是一种转瞬即逝的现实。
         hr
@@ -127,8 +128,8 @@ html(lang='en')
             i.p-icon-folder
         div.p-notice#hide
             div.p-notice-head
-                p.p-notice-title 成功成功成功成功成功成功成功成功
-                span.p-notice-close
+                div.p-notice-title 成功成功成功成功成功成功成功成功
+                div.p-notice-close
             p.p-notice-content 这是一条祝贺您成功的通知!这是一条祝贺您成功的通知!
         div.p-progress 
             div.p-progress-bar.p-progress-bar-striped(style='width:30%') 30%
@@ -226,16 +227,25 @@ html(lang='en')
             .p-article-lead 《永远的蝴蝶》是台湾著名作家陈启佑先生的一篇小小说。这是一篇散文化的微型小说，其语言具有较强的抒情色彩，立意含蓄隽永 。作品情节很简单，写的是一个凄美的爱情故事。在一个雨天，“我”的恋人樱子自愿帮“我”到马路对面去寄信。随着一阵拔尖的刹车声，樱子年轻的生命消逝了。
             .p-article-content 
                 p 计算机设计计算机设计计算机设计
-        header.p-navbar
-            .p-navbar-brand Amaze UI 
-            ul.p-navbar-items
-                li.p-navbar-item.p-navbar-active
-                    a(href="") 语文
-                li.p-navbar-item
-                    a(href="") 数学
-                li.p-navbar-item 
-                    a(href="") 英语
-                li.p-navbar-item 
-                    a(href="") 地理
-                li.p-navbar-item
-                    input.p-input.p-navbar-search
+        //- header.p-navbar
+        //-     .p-navbar-brand Amaze UI 
+        //-     ul.p-navbar-items
+        //-         li.p-navbar-item.p-navbar-active
+        //-             a(href="") 语文
+        //-         li.p-navbar-item
+        //-             a(href="") 数学
+        //-         li.p-navbar-item 
+        //-             a(href="") 英语
+        //-         li.p-navbar-item 
+        //-             a(href="") 地理
+        //-         li.p-navbar-item
+        //-             input.p-input.p-navbar-search
+        .p-modal 
+            .p-modal-dialog
+                .p-modal-close
+                | xxxxxxxx
+                | xxxxxxxx
+                | xxxxxxxx
+                | xxxxxxxxx
+                | xxxxxxxxx
+                | xxxxxxx

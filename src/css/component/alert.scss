@@ -1,5 +1,4 @@
-@mixin alert($color:$default-color){
-    display: block;
+@mixin alert(){
     z-index: 1000;
     padding: 1rem;
     position: relative;
@@ -8,7 +7,6 @@
     text-overflow: ellipsis;
     word-break: keep-all;
     & *:not(.#{$prefix}alert-close){
-        display: block;
         margin:0 2rem 0 0;
         padding: 0;
         overflow: hidden;
@@ -17,16 +15,14 @@
     }
 }
 @mixin alert-color($color:$default-color){
-    // border: 1px solid rgba($color,.1);
-    color: darken($color,10%);
-    background-color: rgba($color,.2);
+    color: darken($color,20%);
+    background-color: rgba($color,.3);
 }
 
 .#{$prefix}alert {
     & {
         @include alert();
         @include alert-color();
-        color: darken($default-color,40%);
     }
     &.#{$prefix}alert-primary{
         @include alert-color($primary-color);

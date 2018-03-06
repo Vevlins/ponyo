@@ -20,9 +20,9 @@
     display: block;
     width: 10px;
     height: 10px;
-    border-left:1px solid $default-color;
-    border-top:1px solid $default-color;
-    transform: rotate(225deg)
+    border: 1px solid $default-color;
+    border-width: 1px 0 0 1px;
+    transform: rotate(225deg);
 }
 .#{$prefix}tip{
     @include tip();

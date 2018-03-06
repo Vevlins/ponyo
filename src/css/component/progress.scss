@@ -1,5 +1,4 @@
 @mixin progress() {
-    display: block;
     position: relative;
     height: 20px;
     width: 100%;
@@ -10,18 +9,25 @@
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
 }
 
-@mixin progress-bar($background-color:$primary-color) {
-    display: block;
+@mixin progress-bar() {
     float: left;
     max-width: 100%;
     height: 20px;
     font-size: .8em;
     left: 0;
-    background-color: $background-color;
     text-align: center;
     line-height: 20px;
     color: $white-color;
     min-width: 2em;
+    &:last-of-type {
+        border-radius:  0 3px 3px 0;
+    }
+    &:first-of-type {
+        border-radius:  3px 0 0 3px;
+    }
+    &:only-child {
+        border-radius:  3px 3px 3px 3px;
+    }
 }
 
 @mixin progress-bar-color($background-color:$primary-color){
@@ -41,6 +47,7 @@
         //color
         &{
             @include progress-bar();
+            @include progress-bar-color();
         }
         &.#{$prefix}progress-bar-success {
             @include progress-bar-color($success-color);
@@ -53,16 +60,6 @@
         }
         &.#{$prefix}progress-bar-danger {
             @include progress-bar-color($danger-color);
-        }
-        //radius
-        &:last-of-type {
-            border-radius:  0 3px 3px 0;
-        }
-        &:first-of-type {
-            border-radius:  3px 0 0 3px;
-        }
-        &:only-child {
-            border-radius:  3px 3px 3px 3px;
         }
         //striped
         &.#{$prefix}progress-bar-striped {
